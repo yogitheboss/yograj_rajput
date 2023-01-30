@@ -1,69 +1,58 @@
-import {  useState, useEffect } from "react";
-import "./App.css";
-import Navbar from "./components/Navbar";
-import Herosection from "./components/Herosection";
-import Skills from "./components/Skills";
-import { FaAngleDoubleUp } from "react-icons/fa";
-import Contact from "./components/Contact";
-import Projects from "./components/Projects";
-
+import Footer from './components/Footer.js'
+import HeroSection from './components/HeroSection.js'
+import Navbar from './components/Navbar.js'
+import Projects from './components/Projects.js'
+import Feedback from './components/Feedback.js'
+import Contacts from './components/Contacts.js'
+import {useState,useEffect} from 'react'
+import About from './components/About.js'
+import { scroller } from 'react-scroll'
+import React from 'react'
+import SideMenu from './components/SideMenu.js'
+import Wrapper from './components/Wrapper.js'
 function App() {
-  // const About1 = useRef(null);
-  // const contact = useRef(null);
-  // const About2 = useRef(null);
-
-  // const scrolltotop = (ref) => {
-  //   window.scrollTo({
-  //     top: ref.current.offsetTop,
-  //     behavior: "smooth",
-  //   });
-  // };
-  const scrolltop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+  const scrollToElement = (element) => {
+    scroller.scrollTo(element, {
+      duration: 800,
+      delay: 0,
+      smooth: 'easeInOutQuart'
     });
-  };
-  const [visible, togglevisible] = useState(false);
+  }
+
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
-        togglevisible(true);
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
       } else {
-        togglevisible(false);
+        setScrolled(false);
       }
-    });
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
+
   return (
-    <div className="Home" >
-      <div>
-        {visible && (
-          <FaAngleDoubleUp
-            onClick={scrolltop}
-            style={{
-              fontSize: "2rem",
-              position: "fixed",
-              bottom: "30px",
-              right: "30px",
-              border: "4px solid black",
-            }}
-          />
-        )}
-      </div>
-      <Navbar />
-      <Herosection id="home"/>
-      <section id="skill">
-      <Skills ></Skills>
-      </section>
-      <section id="projects">
-      <Projects ></Projects>
-      </section>
-      <section id="contact">
-      <Contact ></Contact>
-      </section>
+    <>
+    <div className="App">
+      <Navbar scrolled={scrolled} menuOpen={menuOpen}setMenuOpen={setMenuOpen}/>
+      {menuOpen && <Wrapper setMenuOpen={setMenuOpen} menuOpen={menuOpen}/>}
+      <SideMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+      <HeroSection /> 
+      <About/>
+      <Projects />
+      <Feedback />
+      <Contacts />
+      <Footer />
     </div>
-  );
+    </>
+    
+    
+  )
 }
 
-export default App;
+export default App

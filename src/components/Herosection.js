@@ -1,66 +1,23 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import "./herosection.css";
-var app = document.getElementById("typing");
+import React from 'react'
 
-const HeroContainer = styled.div`
-  background: url("background.png") no-repeat;
-  display: flex;
-  justify-content: center;
-  height: 90vh;
-  @media only screen and (max-width: 870px){
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-item:center;
-  }
-`;
-const ProfileContainer = styled.div`
-  // margin-left: 5vw;
-  display: flex;
-  
-  justify-content: left;
-  align-items: center;
-  img {
-    height: 20rem;
-    // border-radius: 10%;
-  }
-  @media only screen and (max-width: 870px){
-    img{
-      height: 10rem;
-    }
-    justify-content: center;
-  margin-top:10px;    
-  }
-`;
-const TypingContainer = styled.div`
-  margin-right: 5vw;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-
-  justify-content: center;
-  @media only screen and (max-width: 870px){
-
-    margin-right: 0;
-  }
-  
-  }
-`;
-
-function Herosection() {
+function HeroSection() {
   return (
-    <HeroContainer>
-      <TypingContainer>
-        <h1> Hi I am Yograj</h1>
-        <h3>A web developer</h3>
-        <button className="skill_btn">My Skills</button>
-      </TypingContainer>
-      <ProfileContainer>
-        <img src="profile.jpg" alt="profile_picture" />
-      </ProfileContainer>
-    </HeroContainer>
-  );
+    <section className='hero hero-section text-blue-600  align-middle justify-center flex flex-col md:flex-row'>
+    
+       <div className='basis-1/4 md:basis-1/4 center'>
+          <img src="./yogi.jpg" alt="pofilepic" className=' rounded-full w-40 mx-auto  md:rounded-2xl    lg:h-96 lg:w-72 md:w-fit md:h-fit    ' />
+       </div>
+
+        <div className=" px-20 name flex basis-1/2 flex-col justify-center text-center">
+          <h1 className='md:text-5xl text-left font-bold text-blue-400 '>Hi, I'm </h1>
+          <p className='text-blue-200 text-5xl md:text-5xl text-left mt-2 mb-3'>Yograj</p>
+          <p className='my-2 text-lg text-blue-400 md:text-xl font-medium text-left'>I'm a software engineer specializing in building web applications,  </p>
+          <p className='text-lg text-blue-400 md:text-xl font-medium text-left'>currently I am actively looking to get internships  </p>
+        </div>
+        
+   
+    </section>
+  )
 }
 
-export default Herosection;
+export default HeroSection
