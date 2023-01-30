@@ -6,18 +6,12 @@ import Feedback from './components/Feedback.js'
 import Contacts from './components/Contacts.js'
 import {useState,useEffect} from 'react'
 import About from './components/About.js'
+import { Link } from 'react-scroll'
 import { scroller } from 'react-scroll'
 import React from 'react'
 import SideMenu from './components/SideMenu.js'
 import Wrapper from './components/Wrapper.js'
 function App() {
-  const scrollToElement = (element) => {
-    scroller.scrollTo(element, {
-      duration: 800,
-      delay: 0,
-      smooth: 'easeInOutQuart'
-    });
-  }
 
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false);
@@ -39,6 +33,7 @@ function App() {
   return (
     <>
     <div className="App">
+    
       <Navbar scrolled={scrolled} menuOpen={menuOpen}setMenuOpen={setMenuOpen}/>
       {menuOpen && <Wrapper setMenuOpen={setMenuOpen} menuOpen={menuOpen}/>}
       <SideMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
