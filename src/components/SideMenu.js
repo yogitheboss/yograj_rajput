@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-scroll'
 function SideMenu({ menuOpen ,setMenuOpen}) {
-    console.log('I am in SideMenu', menuOpen);
     return (
 
         <>
@@ -16,7 +15,7 @@ function SideMenu({ menuOpen ,setMenuOpen}) {
                 <div style={{fontWeight:600}}className='flex flex-col h-80 px-3 justify-center'>
                     <Link to='about' offset={-40}spy={true} smooth={true  } duration={800} className="my-4 cursor-pointer hover:text-sky-400 " onClick={()=>{setMenuOpen(!menuOpen)}}>Home</Link>
                     <Link to='work'  offset={-40}spy={true} smooth={true  } duration={800}className="my-4 hover:text-sky-400 cursor-pointer" onClick={()=>{setMenuOpen(!menuOpen)}}>Projects</Link>
-                    <Link to="contacts" offset={-40}spy={true} smooth={true  } duration={800}className="my-4 hover:text-sky-400 cursor-pointer" onClick={()=>{setMenuOpen(!menuOpen)}}>About</Link>
+                    <Link to="skills" offset={-40}spy={true} smooth={true  } duration={800}className="my-4 hover:text-sky-400 cursor-pointer" onClick={()=>{setMenuOpen(!menuOpen)}}>About</Link>
                 </div>
             </div>
         </>

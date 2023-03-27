@@ -10,7 +10,7 @@ body {
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(90deg, rgb(2, 8, 21) 0%, rgb(17, 33, 57) 35%);
+  background: linear-gradient(90deg, rgb(3, 16, 44) 0%, rgb(4, 16, 35) 35%);
   color: rgb(255, 255, 255);
 }
 
@@ -60,16 +60,6 @@ code {
   background-color: rgba(0, 0, 1, 1);
   opacity: 0.5;
 }
-
-/* @keyframes slideIn {
-  from {transform: translateX(-100%);}
-  to {transform: translateX(0%);}
-} */
-/* @keyframes slideOut {
-  from {transform: translateX(0%);}
-  to {transform: translateX(100%);}
-} */
-.close {}
 
 .center {
   margin-top: auto;

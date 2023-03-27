@@ -2,13 +2,12 @@ import Footer from './components/Footer.js'
 import HeroSection from './components/HeroSection.js'
 import Navbar from './components/Navbar.js'
 import Projects from './components/Projects.js'
-import Feedback from './components/Feedback.js'
-import Contacts from './components/Contacts.js'
 import {useState,useEffect} from 'react'
 import About from './components/About.js'
 import React from 'react'
 import SideMenu from './components/SideMenu.js'
 import Wrapper from './components/Wrapper.js'
+import Skills from './components/Skills.js'
 function App() {
 
   const [menuOpen, setMenuOpen] = useState(false)
@@ -37,10 +36,10 @@ function App() {
       <SideMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
       <HeroSection /> 
       <About/>
-      <Projects />
-      <Feedback />
-      <Contacts />
+      {/* <Projects /> */}
+      <Skills />
       <Footer />
+      
     </div>
     </>
     
